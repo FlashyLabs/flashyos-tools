@@ -1,11 +1,35 @@
 name: CodeQL
 
 on:
+  # Every push, and deliberately with no `branches:` filter.
+  #
+  # Code scanning alerts are keyed to a repository's DEFAULT branch: an
+  # analysis that only ever runs on pull requests establishes no baseline, so
+  # the Security tab stays empty and each pull request is compared against
+  # nothing. These repositories take direct pushes rather than pull requests,
+  # so measured 2026-09-23, hours after the first three went out, CodeQL had
+  # analysed zero commits that ship: mesh-lint had taken no run at all, and
+  # flashyos-tools' three were every one of them on a Dependabot branch.
+  # Registered, green where it appeared, never having read what ships.
+  #
+  # No filter rather than `branches: [main]` because a workflow that names a
+  # branch stops firing without failing on the day that branch is renamed, and
+  # this estate has paid for that one repeatedly. The cost is a second run on
+  # a branch that also has a pull request open, which the concurrency group
+  # below collapses.
+  push:
   pull_request:
   schedule:
     # Weekly, so a repository nobody is pushing to is still being checked.
     - cron: '0 6 * * 1'
   workflow_dispatch:
+
+# A push to a branch with a pull request open triggers both. Without this they
+# run concurrently against one ref and the second to finish uploads over the
+# first — two analyses of the same commit, one of them discarded.
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
