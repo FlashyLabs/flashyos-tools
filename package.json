@@ -41,6 +41,6 @@
     "LICENSE"
   ],
   "scripts": {
-    "test": "node --test src/*.test.mjs"
+    "test": "node --test src/drift.test.mjs src/served.test.mjs src/types.test.mjs"
   }
 }

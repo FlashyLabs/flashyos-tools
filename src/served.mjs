@@ -28,7 +28,23 @@
 // confident wrong answer is worse than an absence — the estate's rule is that
 // unread is not zero, and this is the shape of unread.
 import { existsSync, readFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { join, posix } from 'node:path'
+
+/**
+ * A published path is always POSIX, whatever the platform reading it.
+ *
+ * `path.join` emits `apps\\marketing\\public` on Windows, and every consumer
+ * of these values treats them as forward-slash paths: they are declared that
+ * way in `.deploy/config.json`, compared against `git ls-files` output, and
+ * concatenated into URLs. A Windows caller got a string that matched nothing
+ * and built a URL with backslashes in it.
+ *
+ * Found 2026-09-23 by the three-by-three matrix on the first run it ever
+ * completed — the matrix had been in the workflow from the first commit and
+ * had never executed a test, because the job before it could not start.
+ * Filesystem reads are unaffected: Windows accepts forward slashes.
+ */
+const published = (...parts) => posix.join(...parts.filter((p) => p !== ''))
 
 /**
  * Both spellings of the well-known directory, and the second is not a typo.
@@ -52,7 +68,7 @@ export const WELL_KNOWN = Object.freeze(['.well-known', 'well-known'])
  */
 export function publishedDir(root, framework) {
   const base = root === '.' || !root ? '' : root
-  return framework === 'next' || framework === 'docker' ? join(base, 'public') : base
+  return framework === 'next' || framework === 'docker' ? published(base, 'public') : base
 }
 
 /**
@@ -104,7 +120,7 @@ export function servedAt(repo, wellKnownPath) {
   const tail = wellKnownPath.replace(/^\.?well-known\//, '').replace(/^\//, '')
   for (const d of dirs) {
     for (const wk of WELL_KNOWN) {
-      const rel = join(d.dir, wk, tail)
+      const rel = published(d.dir, wk, tail)
       if (existsSync(join(repo, rel)))
         return { domain: d.domain, file: rel, url: `https://${d.domain}/.well-known/${tail}` }
     }
@@ -117,7 +133,7 @@ export function servedAtRoot(repo, name) {
   const dirs = publishedDirs(repo)
   if (!dirs) return null
   for (const d of dirs) {
-    const rel = join(d.dir, name)
+    const rel = published(d.dir, name)
     if (existsSync(join(repo, rel))) return { domain: d.domain, file: rel, url: `https://${d.domain}/${name}` }
   }
   return null

@@ -181,3 +181,35 @@ describe('it reads the real estate', () => {
     },
   )
 })
+
+test('a published path is POSIX on every platform', () => {
+  // `path.join` emits backslashes on Windows. Every consumer of these values
+  // treats them as forward-slash paths — declared that way in
+  // `.deploy/config.json`, compared against `git ls-files`, concatenated into
+  // URLs — so a Windows caller got `apps\marketing\public`, which matched
+  // nothing and built a URL with backslashes in it.
+  //
+  // Found 2026-09-23 by the three-by-three matrix on the first run it ever
+  // completed. The matrix had been in the workflow since the first commit and
+  // had never executed a test, because `npm ci` failed before it.
+  assert.equal(publishedDir('apps/marketing', 'next'), 'apps/marketing/public')
+  assert.equal(publishedDir('sites/api', 'docker'), 'sites/api/public')
+  assert.equal(publishedDir('.', 'next'), 'public')
+  assert.equal(publishedDir('.', 'static'), '')
+  for (const v of ['apps/marketing/public', 'sites/api/public', 'public'])
+    assert.ok(!v.includes('\\'), `${v} carries a backslash`)
+})
+
+test('every path a caller is handed is free of backslashes', (t) => {
+  // Over the real repository rather than over fixtures: a rule proved only on
+  // strings it was written beside is a rule that has never met the tree.
+  //
+  // This file is vendored into a published package, where there is no deploy
+  // config to read. It SKIPS with the reason there rather than passing over
+  // an empty list — unread is not zero, and a check that quietly reports a
+  // clean tree because it looked at nothing is the failure this whole
+  // exercise is about.
+  const dirs = publishedDirs(ROOT)
+  if (!dirs?.length) return t.skip('this checkout declares no deploy target — unknown, not clean')
+  for (const d of dirs) assert.ok(!d.dir.includes('\\'), `${d.domain} → ${d.dir}`)
+})
