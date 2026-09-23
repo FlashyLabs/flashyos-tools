@@ -21,7 +21,7 @@ jobs:
       # shallow clone answers it WRONGLY rather than refusing: `git merge-base
       # --is-ancestor` exits non-zero for a commit outside the graft window,
       # which is byte-identical to "not an ancestor".
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
