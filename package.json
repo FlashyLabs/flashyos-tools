@@ -1,0 +1,31 @@
+{
+  "name": "@flashyos/tools",
+  "version": "0.0.0",
+  "description": "Two small answers to questions that fail silently.",
+  "license": "Apache-2.0",
+  "author": "Flashy Labs",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flashylabs/flashyos-tools.git"
+  },
+  "homepage": "https://github.com/flashylabs/flashyos-tools#readme",
+  "bugs": "https://github.com/flashylabs/flashyos-tools/issues",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "flashyos-tools": "./src/cli.mjs"
+  },
+  "exports": {
+    ".": "./src/index.mjs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test src/*.test.mjs"
+  }
+}
