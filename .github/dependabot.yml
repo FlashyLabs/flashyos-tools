@@ -1,0 +1,13 @@
+version: 2
+updates:
+  # This package has no runtime dependencies, which is deliberate and is a
+  # claim the README makes. Dependabot is here for the Actions, which do have
+  # versions and do get security advisories.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly

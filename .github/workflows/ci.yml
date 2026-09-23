@@ -21,13 +21,18 @@ jobs:
       # shallow clone answers it WRONGLY rather than refusing: `git merge-base
       # --is-ancestor` exits non-zero for a commit outside the graft window,
       # which is byte-identical to "not an ancestor".
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: ${{ matrix.node }}
 
+      # `npm ci` REFUSES without a lockfile rather than falling back to
+      # `npm install` — EUSAGE, before a single test runs. A zero-dependency
+      # package feels like the one case that would not need one, which is
+      # exactly how this step went red on every push to every repository here
+      # and reported it as a test failure.
       - run: npm ci
       - run: npm test

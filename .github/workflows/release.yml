@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+  # Both are required for provenance: the OIDC token proves the run, and npm
+  # checks the source repository is public before it will attest anything.
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          registry-url: https://registry.npmjs.org
+
+      # The tag and the manifest must agree. A tag that says v0.2.0 over a
+      # manifest that says 0.1.0 publishes the wrong version under the right
+      # name, and the registry is then permanently the only record of which
+      # was meant.
+      - name: The tag and package.json agree
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          PKG=$(node -p "require('./package.json').version")
+          test "$TAG" = "$PKG" || {
+            echo "::error::tag ${GITHUB_REF_NAME} does not match package.json version $PKG"
+            exit 1
+          }
+
+      - run: npm ci
+      - run: npm test
+
+      - name: Publish with provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "::error::NPM_TOKEN is unset. An absent secret substitutes an empty string silently, so this is checked here rather than discovered as a 404 from the registry."
+            exit 1
+          fi
+          npm publish --provenance --access public

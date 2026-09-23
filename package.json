@@ -1,6 +1,6 @@
 {
   "name": "@flashyos/tools",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Two small answers to questions that fail silently.",
   "license": "Apache-2.0",
   "author": "Flashy Labs",
@@ -14,11 +14,26 @@
   "engines": {
     "node": ">=20"
   },
+  "keywords": [
+    "monorepo",
+    "deploy",
+    "deployment",
+    "well-known",
+    "reachability",
+    "proxy",
+    "devops",
+    "cli",
+    "zero-dependencies"
+  ],
   "bin": {
     "flashyos-tools": "./src/cli.mjs"
   },
+  "types": "./src/index.d.ts",
   "exports": {
-    ".": "./src/index.mjs"
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.mjs"
+    }
   },
   "files": [
     "src",
