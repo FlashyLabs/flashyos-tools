@@ -28,6 +28,7 @@ jobs:
       # name, and the registry is then permanently the only record of which
       # was meant.
       - name: The tag and package.json agree
+        shell: bash
         run: |
           TAG="${GITHUB_REF_NAME#v}"
           PKG=$(node -p "require('./package.json').version")
@@ -40,6 +41,7 @@ jobs:
       - run: npm test
 
       - name: Publish with provenance
+        shell: bash
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
