@@ -115,7 +115,11 @@ describe('both spellings of well-known, and the second is not a typo', () => {
         targets: [{ domain: 'x.example', root: '.', framework: 'static', state: 'live' }],
         files: [`${wk}/frontdoor.json`],
       })
-      assert.equal(servedAt(dir, '.well-known/frontdoor.json')?.file, join(wk, 'frontdoor.json'))
+      // Literal, not `join`. An expectation built with `path.join` follows
+      // the platform, so on Windows it would have carried backslashes and
+      // agreed with a buggy implementation — which is what it did: the
+      // separator defect went unseen here and was found by a caller.
+      assert.equal(servedAt(dir, '.well-known/frontdoor.json')?.file, `${wk}/frontdoor.json`)
     })
   }
 })
@@ -149,7 +153,7 @@ describe('files published at the property root', () => {
     })
     const at = servedAtRoot(dir, 'agents.txt')
     assert.equal(at?.url, 'https://x.example/agents.txt')
-    assert.equal(at?.file, join('apps', 'marketing', 'public', 'agents.txt'))
+    assert.equal(at?.file, 'apps/marketing/public/agents.txt')
   })
 
   test('absent is null, never a path that does not exist', () => {
