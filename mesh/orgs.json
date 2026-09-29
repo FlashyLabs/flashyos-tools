@@ -1,0 +1,1240 @@
+{
+  "$schema": "./mesh-roster-1.schema.json",
+  "contract": "mesh-roster/1",
+  "generated": "2026-09-29",
+  "x-note": "Charter present/roles/valid are MEASURED from a sibling checkout when present, null when the repo is not checked out (unread, never zero). served.handshake is null everywhere: proving a domain serves the handshake needs a live fetch this survey does not make. provision is pending for all until a person runs provision-org-from-charter with DATABASE_URL.",
+  "orgs": [
+    {
+      "repo": "FlashyLabs/flashyos",
+      "org": "flashyos",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 10,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-network",
+      "org": "flashy-network",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 3,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-group",
+      "org": "flashy-group",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 4,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashyid",
+      "org": "flashyid",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 4,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-finance",
+      "org": "flashy-finance",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 6,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/ClaimYour.Gold",
+      "org": "claimyour-gold",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 9,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-gold",
+      "org": "flashy-gold",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 3,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-academy",
+      "org": "flashy-academy",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 12,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-labs",
+      "org": "flashy-labs",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-rails",
+      "org": "flashy-rails",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/magician",
+      "org": "magician",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 7,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/intentmesh",
+      "org": "intentmesh",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/therealm",
+      "org": "therealm",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 4,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/chronicle",
+      "org": "chronicle",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 3,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/bastion",
+      "org": "bastion",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-tools",
+      "org": "flashy-tools",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 3,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/gold-holdings",
+      "org": "gold-holdings",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 6,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/gda-group",
+      "org": "gda-group",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 6,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/botz-group",
+      "org": "botz-group",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/metaverse-group",
+      "org": "metaverse-group",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 6,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/intent-spec",
+      "org": "intent-spec",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashyid-spec",
+      "org": "flashyid-spec",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/agent-wellknown",
+      "org": "agent-wellknown",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/agent-dns",
+      "org": "agent-dns",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/agentgraph",
+      "org": "agentgraph",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/agentpay",
+      "org": "agentpay",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/stack.json",
+      "org": "stack-json",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/web4",
+      "org": "web4",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/aao",
+      "org": "aao",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashyos-spec",
+      "org": "flashyos-spec",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/agentfile",
+      "org": "agentfile",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-contracts",
+      "org": "flashy-contracts",
+      "kind": "library",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-sdk",
+      "org": "flashy-sdk",
+      "kind": "library",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-ledger",
+      "org": "flashy-ledger",
+      "kind": "library",
+      "charter": {
+        "present": true,
+        "roles": 9,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-examples",
+      "org": "flashy-examples",
+      "kind": "library",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-docs",
+      "org": "flashy-docs",
+      "kind": "library",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashyos-wdk",
+      "org": "flashyos-wdk",
+      "kind": "library",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/wdk-policy-guard",
+      "org": "wdk-policy-guard",
+      "kind": "library",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/wdk-staking-kit",
+      "org": "wdk-staking-kit",
+      "kind": "library",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/conformance-kit",
+      "org": "conformance-kit",
+      "kind": "tooling",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashyos-tools",
+      "org": "flashyos-tools",
+      "kind": "tooling",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/mesh-lint",
+      "org": "mesh-lint",
+      "kind": "tooling",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-infra",
+      "org": "flashy-infra",
+      "kind": "tooling",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/wdk-capability-audit",
+      "org": "wdk-capability-audit",
+      "kind": "tooling",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/4ventures",
+      "org": "4ventures",
+      "kind": "site",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/mlgblockchain",
+      "org": "mlgblockchain",
+      "kind": "site",
+      "charter": {
+        "present": true,
+        "roles": 9,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/michaelgord",
+      "org": "michaelgord",
+      "kind": "site",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/sarahgord",
+      "org": "sarahgord",
+      "kind": "site",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashylabs",
+      "org": "flashylabs",
+      "kind": "site",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/personality-ai",
+      "org": "personality-ai",
+      "kind": "site",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/music-hub",
+      "org": "music-hub",
+      "kind": "site",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/fashion-st",
+      "org": "fashion-st",
+      "kind": "site",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-fashion",
+      "org": "flashy-fashion",
+      "kind": "site",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/mystandard-website",
+      "org": "mystandard-website",
+      "kind": "site",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/palcapital",
+      "org": "palcapital",
+      "kind": "site",
+      "charter": {
+        "present": true,
+        "roles": 4,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/metaverse-ventures",
+      "org": "metaverse-ventures",
+      "kind": "site",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/dais-global",
+      "org": "dais-global",
+      "kind": "client",
+      "charter": {
+        "present": true,
+        "roles": 4,
+        "valid": true
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/kopman-build",
+      "org": "kopman-build",
+      "kind": "client",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/marco-law",
+      "org": "marco-law",
+      "kind": "client",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/multibank-litigation",
+      "org": "multibank-litigation",
+      "kind": "client",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/life-staking",
+      "org": "life-staking",
+      "kind": "client",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/life-bridge",
+      "org": "life-bridge",
+      "kind": "client",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/life-username-platform",
+      "org": "life-username-platform",
+      "kind": "client",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-wallet",
+      "org": "flashy-wallet",
+      "kind": "client",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-wallet-api",
+      "org": "flashy-wallet-api",
+      "kind": "client",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/flashy-wallet-admin",
+      "org": "flashy-wallet-admin",
+      "kind": "client",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/aihumans-website",
+      "org": "aihumans-website",
+      "kind": "client",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/buildos",
+      "org": "buildos",
+      "kind": "tooling",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/second-brain",
+      "org": "second-brain",
+      "kind": "vault",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/ritualos",
+      "org": "ritualos",
+      "kind": "vault",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/FlashyMobileLegacy",
+      "org": "flashymobilelegacy",
+      "kind": "vault",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/FlashyGold",
+      "org": "flashygold",
+      "kind": "vault",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "private",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "FlashyLabs/.github",
+      "org": "github",
+      "kind": "vault",
+      "charter": {
+        "present": false,
+        "roles": null,
+        "valid": null
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "Rites-Network/ritual-spec",
+      "org": "ritual-spec",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "magician-network/trust-spec",
+      "org": "trust-spec",
+      "kind": "spec",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "magician-network/trustgraph",
+      "org": "trustgraph",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    },
+    {
+      "repo": "gda-os/gda-os",
+      "org": "gda-os",
+      "kind": "platform",
+      "charter": {
+        "present": true,
+        "roles": 5,
+        "valid": true
+      },
+      "listing": "public",
+      "served": {
+        "domain": null,
+        "handshake": null
+      },
+      "provision": "pending"
+    }
+  ]
+}
