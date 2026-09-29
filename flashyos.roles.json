@@ -1,0 +1,95 @@
+{
+  "x-generated": "estate-charter/1; 2026-09-29; every role is one standing job, and five roles are five agents",
+  "aao": "0.1",
+  "name": "Flashyos Tools",
+  "slug": "flashyos-tools",
+  "description": "Flashyos Tools — an instrument on the FlashyOS mesh — a tool that measures the estate and re-reads its source of truth rather than a copy. AAO expands to Agentic Autonomous Organization.",
+  "accountableTo": "michael@gda.capital",
+  "escalation": "maintainer",
+  "repositories": [
+    {
+      "name": "flashyos-tools",
+      "url": "github.com/FlashyLabs/flashyos-tools",
+      "default": true,
+      "holds": [
+        "tooling",
+        "measure"
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "name": "maintainer",
+      "family": "engineering",
+      "purpose": "Owns the instrument’s correctness and the population it measures, and re-reads the source of truth rather than a copy that can go stale.",
+      "measure": "Runs producing a reading, as a share of runs",
+      "capabilities": [
+        "merge-changes",
+        "define-measure"
+      ],
+      "humanApprovalAtOrAbove": "HIGH",
+      "x-capability": [
+        "content-exchange"
+      ],
+      "worksIn": [
+        "flashyos-tools"
+      ]
+    },
+    {
+      "name": "review",
+      "family": "governance",
+      "purpose": "Reviews a change to what the tool measures, because a check that goes green for having looked at nothing is this estate’s recorded failure.",
+      "measure": "Merges carrying a review, as a share of merges",
+      "capabilities": [
+        "review-changes",
+        "approve-merge"
+      ],
+      "humanApprovalAtOrAbove": "HIGH",
+      "worksIn": [
+        "flashyos-tools"
+      ]
+    },
+    {
+      "name": "release",
+      "family": "operations",
+      "purpose": "Versions and re-vendors the tool into the properties that copy it, keeping every copy byte-identical to canon.",
+      "measure": "Vendored copies current, as a share of copies",
+      "capabilities": [
+        "tag-version",
+        "re-vendor"
+      ],
+      "humanApprovalAtOrAbove": "MEDIUM",
+      "worksIn": [
+        "flashyos-tools"
+      ]
+    },
+    {
+      "name": "conformance",
+      "family": "engineering",
+      "purpose": "Runs the tool’s own tests and its vacuity guard, so a traversal that resolves nothing is a red run rather than a clean estate.",
+      "measure": "Checks passing, as a share of runs",
+      "capabilities": [
+        "run-tests",
+        "guard-vacuity"
+      ],
+      "humanApprovalAtOrAbove": "LOW",
+      "worksIn": [
+        "flashyos-tools"
+      ]
+    },
+    {
+      "name": "operations",
+      "family": "operations",
+      "purpose": "Schedules the tool and reads its output, and keeps a staleness bound against the producer’s cadence rather than when a reader would call the number useless.",
+      "measure": "Scheduled runs producing a fresh reading, as a share of runs",
+      "capabilities": [
+        "schedule-run",
+        "read-output"
+      ],
+      "humanApprovalAtOrAbove": "MEDIUM",
+      "worksIn": [
+        "flashyos-tools"
+      ]
+    }
+  ]
+}

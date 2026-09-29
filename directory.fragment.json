@@ -1,0 +1,80 @@
+{
+  "contract": "directory/1",
+  "generated": "2026-09-29",
+  "org": "org/flashyos-tools",
+  "nodes": [
+    {
+      "id": "org/flashyos-tools",
+      "kind": "org",
+      "name": "Flashyos Tools"
+    },
+    {
+      "id": "person/michael",
+      "kind": "person",
+      "name": "Michael Gord"
+    },
+    {
+      "id": "agent/flashyos-tools-maintainer",
+      "kind": "agent",
+      "name": "maintainer",
+      "for": "org/flashyos-tools"
+    },
+    {
+      "id": "agent/flashyos-tools-review",
+      "kind": "agent",
+      "name": "review",
+      "for": "org/flashyos-tools"
+    },
+    {
+      "id": "agent/flashyos-tools-release",
+      "kind": "agent",
+      "name": "release",
+      "for": "org/flashyos-tools"
+    },
+    {
+      "id": "agent/flashyos-tools-conformance",
+      "kind": "agent",
+      "name": "conformance",
+      "for": "org/flashyos-tools"
+    },
+    {
+      "id": "agent/flashyos-tools-operations",
+      "kind": "agent",
+      "name": "operations",
+      "for": "org/flashyos-tools"
+    }
+  ],
+  "edges": [
+    {
+      "from": "org/flashyos-tools",
+      "rel": "staffs",
+      "to": "agent/flashyos-tools-maintainer",
+      "by": "person/michael"
+    },
+    {
+      "from": "org/flashyos-tools",
+      "rel": "staffs",
+      "to": "agent/flashyos-tools-review",
+      "by": "person/michael"
+    },
+    {
+      "from": "org/flashyos-tools",
+      "rel": "staffs",
+      "to": "agent/flashyos-tools-release",
+      "by": "person/michael"
+    },
+    {
+      "from": "org/flashyos-tools",
+      "rel": "staffs",
+      "to": "agent/flashyos-tools-conformance",
+      "by": "person/michael"
+    },
+    {
+      "from": "org/flashyos-tools",
+      "rel": "staffs",
+      "to": "agent/flashyos-tools-operations",
+      "by": "person/michael"
+    }
+  ],
+  "x-note": "Five agents, one per charter role. Generated from flashyos.roles.json; a live org is provisioned from the charter with provision-org-from-charter."
+}
