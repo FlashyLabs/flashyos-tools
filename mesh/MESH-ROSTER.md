@@ -47,6 +47,21 @@ That is a `DATABASE_URL` write run by whoever holds it, never by a workflow
 without the secret — a live org is a decision a person signs. `estate-provision.mjs`
 prints the plan; it will not run it for you.
 
+## Repo-only, not part of the published package
+
+These tools are **estate instruments that run in a checkout of this
+repository — not exports of `@flashyos/tools`**. The published package's `files`
+list is `["src", "README.md", "LICENSE"]`, so nothing under `mesh/` is packed
+into the npm tarball, and nothing in `src/` (the shipped library, the CLI, or
+the type declarations) imports from `mesh/`. That is deliberate: `build-roster`,
+`estate-charter` and `estate-provision` only mean anything against this estate's
+own population (`repos.tsv`, sibling checkouts, the FlashyOS provisioning API),
+so they are run as `node mesh/<tool>.mjs …` from here, never `import`ed by a
+consumer of the package. `mesh/packaging.test.mjs` asserts the boundary — `mesh`
+absent from `files`, `src/` free of any `mesh/` reference — so a future change
+cannot quietly ship the instruments under a README that documents only the
+library.
+
 ## Re-vendoring
 
 `vendor-aao-check.mjs` is byte-identical to `aao/vendor-aao-check.mjs`. The test

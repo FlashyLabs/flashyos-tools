@@ -93,6 +93,29 @@ construction.
 import { publishedDirs, servedAt, classify, UNCOUNTABLE } from '@flashyos/tools'
 ```
 
+## The mesh tooling is repo-only, on purpose
+
+This repository also carries `mesh/` — the estate instruments behind the
+`mesh-roster/1` contract (the charter generator, the roster builder, the
+`mesh-roster` checker, and the provisioning planner). **None of it ships in the
+published `@flashyos/tools` package**, and that is a decision rather than an
+oversight: `files` in `package.json` is `["src", "README.md", "LICENSE"]`, so
+`npm pack` carries the library (`served` and `reachability`) and nothing under
+`mesh/`.
+
+The reason is that the library answers questions any repository can ask about
+itself, whereas the mesh instruments only mean anything *inside this estate*:
+they read `mesh/repos.tsv` — a fixed population of the estate's own
+repositories — and measure charters in sibling checkouts under a checkout root.
+An external consumer who runs `npm i @flashyos/tools` gets `publishedDirs`,
+`servedAt`, `classify` and the rest; the mesh tools are run in place from a
+checkout of this repository (`node mesh/build-roster.mjs …`), never imported
+from the package. Shipping them would put a second copy of `aao`'s vendored
+checker and a 77-row estate roster into a package whose README, exports and
+`bin` describe neither — the silent kind of drift this estate is built to
+refuse. `mesh/MESH-ROSTER.md` says the same from the other side, and
+`mesh/packaging.test.mjs` holds the boundary so it cannot erode by accident.
+
 ## What flashyos-tools is not
 
 - **Not a deployment tool.** It reads a declaration; it does not deploy, configure a host, or talk to a provider.
