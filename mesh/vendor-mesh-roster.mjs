@@ -8,6 +8,7 @@
 // "every repository is a five-agent mesh organisation" is measured against;
 // a checker that needs an install is a check that can quietly not run.
 import { readFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import process from 'node:process';
 
 export const CONTRACT = 'mesh-roster/1';
@@ -63,22 +64,36 @@ export function summarise(doc) {
   };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+// pathToFileURL(process.argv[1]).href, never `file://${process.argv[1]}`: on
+// Windows the latter is `file://D:\a\...` while import.meta.url is
+// `file:///D:/a/...`, so the two never match and the CLI block was skipped
+// entirely — `check` produced no output and the test read an empty string.
+// The whole block then sets process.exitCode and never calls process.exit()
+// after writing, so a piped stdout drains before the process ends (the same
+// truncation that cut a 14 KiB plan at 8192 bytes on macOS Node 20).
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const [cmd, path] = process.argv.slice(2);
-  if (!path) { console.error('usage: vendor-mesh-roster.mjs check|list <roster.json>'); process.exit(2); }
-  let doc;
-  try { doc = JSON.parse(readFileSync(path, 'utf8')); }
-  catch (e) { console.error(`cannot read ${path}: ${e.message}`); process.exit(2); }
-  if (cmd === 'list') {
-    for (const o of doc.orgs || [])
-      console.log(`${o.repo.padEnd(38)} ${o.org.padEnd(24)} ${o.kind.padEnd(9)} ${o.charter?.present ? o.charter.roles + ' roles' + (o.charter.valid ? ' valid' : '') : 'no charter'}`);
-    const s = summarise(doc);
-    console.log(`\n${s.repos} repos; ${s.charter} carry a charter; ${s.fiveAgents} have exactly five agents; ${s.valid} validate; ${s.provisioned} provisioned.`);
-    process.exit(0);
+  if (!path) {
+    console.error('usage: vendor-mesh-roster.mjs check|list <roster.json>');
+    process.exitCode = 2;
+  } else {
+    let doc;
+    try { doc = JSON.parse(readFileSync(path, 'utf8')); }
+    catch (e) { console.error(`cannot read ${path}: ${e.message}`); process.exitCode = 2; }
+    if (doc && cmd === 'list') {
+      for (const o of doc.orgs || [])
+        console.log(`${o.repo.padEnd(38)} ${o.org.padEnd(24)} ${o.kind.padEnd(9)} ${o.charter?.present ? o.charter.roles + ' roles' + (o.charter.valid ? ' valid' : '') : 'no charter'}`);
+      const s = summarise(doc);
+      console.log(`\n${s.repos} repos; ${s.charter} carry a charter; ${s.fiveAgents} have exactly five agents; ${s.valid} validate; ${s.provisioned} provisioned.`);
+    } else if (doc) {
+      const issues = validateRoster(doc);
+      if (issues.length) {
+        for (const i of issues) console.error(`${i.path}: ${i.message}`);
+        process.exitCode = 1;
+      } else {
+        const s = summarise(doc);
+        console.log(`ok: ${CONTRACT}, ${s.repos} repos, ${s.charter} chartered, ${s.fiveAgents} at five agents, ${s.valid} valid.`);
+      }
+    }
   }
-  const issues = validateRoster(doc);
-  if (issues.length) { for (const i of issues) console.error(`${i.path}: ${i.message}`); process.exit(1); }
-  const s = summarise(doc);
-  console.log(`ok: ${CONTRACT}, ${s.repos} repos, ${s.charter} chartered, ${s.fiveAgents} at five agents, ${s.valid} valid.`);
-  process.exit(0);
 }
