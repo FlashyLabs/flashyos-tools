@@ -14,8 +14,11 @@ import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const HERE = new URL('.', import.meta.url).pathname;
+// fileURLToPath, never .pathname: a Windows file URL's pathname is `/D:/...`,
+// which path.join turns into `\D:\...` and fs then reads as `D:\D:\...`.
+const HERE = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = join(HERE, '..');
 const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));
 

@@ -5,8 +5,13 @@ import { readFileSync, mkdtempSync, existsSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-const here = new URL('.', import.meta.url).pathname;
+// fileURLToPath, never .pathname: on Windows a file URL's pathname is
+// `/D:/a/...` (a leading slash before the drive), and joining that with
+// backslashes yields `\D:\a\...`, which `node <script>` then resolves against
+// the current drive as `D:\D:\a\...` — "Cannot find module". The real CI break.
+const here = fileURLToPath(new URL('.', import.meta.url));
 const GEN = join(here, 'estate-charter.mjs');
 const ROSTER = join(here, 'vendor-mesh-roster.mjs');
 const PROVISION = join(here, 'estate-provision.mjs');

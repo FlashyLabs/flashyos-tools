@@ -12,7 +12,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 
-const AAO_CHECK = new URL("vendor-aao-check.mjs", import.meta.url).pathname;
+const AAO_CHECK = fileURLToPath(new URL("vendor-aao-check.mjs", import.meta.url));
 const ACCOUNTABLE = 'michael@gda.capital';
 
 const slugify = (name) =>

@@ -31,22 +31,26 @@ const plan = ready.map((o) => {
   };
 });
 
+// An if/else-if/else chain that sets process.exitCode and NEVER calls
+// process.exit() after writing output. process.exit() terminates the process
+// before an asynchronous (piped) stdout has drained: on macOS/Linux a pipe
+// flushes in ~8 KiB chunks, so a 14 KiB --json plan was truncated at position
+// 8192 and JSON.parse threw "Unterminated string in JSON at position 8192" —
+// the real macos-latest Node 20 CI break. Letting the event loop empty on its
+// own lets the write complete and the process exit with the code we set.
 if (flags.includes('--json')) {
   process.stdout.write(JSON.stringify({ contract: 'provision-plan/1', generated: new Date().toISOString().slice(0, 10), plan }, null, 2) + '\n');
-  process.exit(0);
-}
-
-if (flags.includes('--commit')) {
+} else if (flags.includes('--commit')) {
   if (!process.env.DATABASE_URL) {
     console.error('refusing to commit: DATABASE_URL is not set. Provisioning writes to the FlashyOS database and is run by whoever holds that, never by a workflow without the secret.');
-    process.exit(1);
+  } else {
+    console.error('commit path is deliberately not wired in this vendored copy: run each command below from its repo checkout against the estate API. A live org is a decision a person signs.');
   }
-  console.error('commit path is deliberately not wired in this vendored copy: run each command below from its repo checkout against the estate API. A live org is a decision a person signs.');
-  process.exit(1);
+  process.exitCode = 1;
+} else {
+  // default: the plan
+  console.log(`${plan.length} organisations ready to provision (valid five-agent charter, not yet live):\n`);
+  for (const p of plan) console.log(`# ${p.repo} — org/${p.org} — ${p.roles} agents — tier ${p.tier}\n  ${p.command}\n`);
+  const notReady = (doc.orgs || []).filter((o) => !(o.charter?.present && o.charter?.valid));
+  if (notReady.length) console.log(`${notReady.length} repositories not yet ready (no charter or not checked out): ${notReady.map((o) => o.repo).join(', ')}`);
 }
-
-// default: the plan
-console.log(`${plan.length} organisations ready to provision (valid five-agent charter, not yet live):\n`);
-for (const p of plan) console.log(`# ${p.repo} — org/${p.org} — ${p.roles} agents — tier ${p.tier}\n  ${p.command}\n`);
-const notReady = (doc.orgs || []).filter((o) => !(o.charter?.present && o.charter?.valid));
-if (notReady.length) console.log(`${notReady.length} repositories not yet ready (no charter or not checked out): ${notReady.map((o) => o.repo).join(', ')}`);
